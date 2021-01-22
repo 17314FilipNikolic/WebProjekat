@@ -1,0 +1,38 @@
+.container{
+    display: flex;
+    border:  1px solid black;
+    
+}
+.contForm{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 200px;
+
+}
+.contPoolForm{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 10px;
+}
+.contPool{
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    border: rgb(12, 12, 12);
+}
+.row{
+    display: flex;
+    flex-grow: 0.5;
+}
+.pool{
+    border: 1px solid black;
+    flex: 1 1 10px;
+    margin: 5px;
+    text-align: center;
+}
+.slide{
+    border: 1px solid black;
+    flex: 1 1 5px;
+    margin: 2px;
+    text-align: center;
+}
