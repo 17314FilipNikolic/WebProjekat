@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\korisnik\\Desktop\\Web Projekat\\Backend\\Backend.csproj": {}
+    "C:\\Users\\korisnik\\Desktop\\WebProjekat\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\korisnik\\Desktop\\Web Projekat\\Backend\\Backend.csproj": {
+    "C:\\Users\\korisnik\\Desktop\\WebProjekat\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\korisnik\\Desktop\\Web Projekat\\Backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\korisnik\\Desktop\\WebProjekat\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\Users\\korisnik\\Desktop\\Web Projekat\\Backend\\Backend.csproj",
+        "projectPath": "C:\\Users\\korisnik\\Desktop\\WebProjekat\\Backend\\Backend.csproj",
         "packagesPath": "C:\\Users\\korisnik\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\korisnik\\Desktop\\Web Projekat\\Backend\\obj\\",
+        "outputPath": "C:\\Users\\korisnik\\Desktop\\WebProjekat\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\korisnik\\AppData\\Roaming\\NuGet\\NuGet.Config",

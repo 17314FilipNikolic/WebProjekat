@@ -18,11 +18,13 @@
     display: flex;
     flex-grow: 1;
     flex-direction: column;
+    flex-wrap: wrap;
     border: rgb(12, 12, 12);
 }
 .row{
     display: flex;
     flex-grow: 0.5;
+    flex-wrap: wrap;
 }
 .pool{
     border: 1px solid black;

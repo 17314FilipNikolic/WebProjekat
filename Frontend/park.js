@@ -28,7 +28,9 @@ export class Park{
         fetch("https://localhost:5001/Aqua/PreuzmiPool").then(p => {
             p.json().then(data => {
                 data.forEach(pool => {
-                    this.pools[pool.x * this.n + pool.y].updatePool(pool.id, pool.x, pool.y, pool.name, pool.numOfSlides, pool.capacity)
+                    if (pool.parkID === this.id){
+                        this.pools[pool.x * this.n + pool.y].updatePool(pool.id, pool.x, pool.y, pool.name, pool.numOfSlides, pool.capacity, this.id)
+                    }
                 });
             });
         });
@@ -110,11 +112,20 @@ export class Park{
                 body: JSON.stringify({
                     name: _name,
                     x: x,
-                    y: y
+                    y: y,
+                    poolID: this.id
                 })
             }).then(p => {
                 if (p.ok) {
-                    this.pools[x * this.n + y].updatePool(_name, 0, this.capacity);
+                    fetch("https://localhost:5001/Aqua/PreuzmiPool").then(p => {
+                        p.json().then(data => {
+                        data.forEach(pool => {
+                            if (pool.parkID === this.id){
+                                this.pools[pool.x * this.n + pool.y].updatePool(pool.id, pool.x, pool.y, pool.name, pool.numOfSlides, pool.capacity, this.id)
+                            }
+                        });
+                    });
+                });
                 }
                 else if (p.status == 400) {
                     const errorLoc = { x: 0, y: 0 };
@@ -143,7 +154,7 @@ export class Park{
             raw.className = "row";
             contPools.appendChild(raw);
             for (let j = 0; j < this.n; j++) {
-                pool = new Pool(i, j, this.capacity, "");
+                pool = new Pool(0, i, j, this.capacity, "");
                 this.addPool(pool);
                 pool.drawPool(raw);
             }

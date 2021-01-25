@@ -26,7 +26,7 @@ namespace Backend.Controllers
 
         [Route("UpisiPark")]
         [HttpPost]
-        public async Task UpisiVrt([FromBody] Park park){
+        public async Task UpisiPark([FromBody] Park park){
             Context.Parks.Add(park);
             await Context.SaveChangesAsync();
         }
@@ -52,11 +52,15 @@ namespace Backend.Controllers
             var park = await Context.Parks.FindAsync(idPark);
             pool.Park = park;
             pool.Capacity = park.Capacity;
+            pool.ParkID = idPark;
 
-            if (Context.Pools.Any(p => p.Name == pool.Name && (p.X != pool.X || p.Y != pool.Y)))
+            if (Context.Pools.Any(p => p.Name == pool.Name && (p.X != pool.X || p.Y != pool.Y) && p.ParkID == pool.ParkID))
             {
                 var pool1 = Context.Pools.Where(p => p.Name == pool.Name).FirstOrDefault();
                 return BadRequest(new { X = pool1?.X, Y = pool1?.Y });
+            }
+            else if (Context.Pools.Any(p => (p.X == pool.X && p.Y == pool.Y) && p.ParkID == pool.ParkID)){
+                return StatusCode(400);
             }
             else {
                 Context.Pools.Add(pool);
@@ -75,7 +79,7 @@ namespace Backend.Controllers
 
         [Route("IzmeniPool")]
         [HttpPut]
-        public async Task IzmeniPark([FromBody] Pool pool){
+        public async Task IzmeniPool([FromBody] Pool pool){
             Context.Update<Pool>(pool);
             await Context.SaveChangesAsync();
         }
@@ -102,7 +106,7 @@ namespace Backend.Controllers
             if(pool.Capacity < pool.NumOfSlides + slide.NumOfSlides){
                 return StatusCode(400);
             }
-            if (Context.Slides.Any(s => s.Type == slide.Type)){
+            if (Context.Slides.Any(s => s.Type == slide.Type && s.PoolID == slide.PoolID)){
                 return StatusCode(406);
             }
             pool.NumOfSlides += slide.NumOfSlides;

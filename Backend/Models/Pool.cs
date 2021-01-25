@@ -28,6 +28,9 @@ namespace Backend.Models{
         [Column("Y")]
         public int Y { get; set; }
 
+        [Column("ParkID")]
+        public int ParkID { get; set; }
+
         public virtual List<Slide> Slides { get; set;}
 
         [JsonIgnore]
