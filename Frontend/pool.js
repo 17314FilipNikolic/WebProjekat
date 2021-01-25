@@ -83,11 +83,12 @@ export class Pool{
                     var slide = new Slide(_type, _num, this.id);
                     this.addSlide(slide);
                     slide.drawSlide(this.miniContainer);
+                    this.updatePool(this.id, this.x, this.y, this.name, this.numOfSlides + _num, this.Capacity, this.IDpark);
                 }
-                else if (s == 406){
-                    alert("Postoji tobogan");
+                else if (s == 400){
+                    alert("Prekoracenje kapaciteta");
                 }
-                else alert("Prekoracenje kapaciteta");
+                else alert("Postoji tobogan");
             });
             /*let potencialSlide = this.slides.find(slide => slide.type === _type);
             if(potencialSlide)

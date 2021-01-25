@@ -56,11 +56,11 @@ namespace Backend.Controllers
 
             if (Context.Pools.Any(p => p.Name == pool.Name && (p.X != pool.X || p.Y != pool.Y) && p.ParkID == pool.ParkID))
             {
-                var pool1 = Context.Pools.Where(p => p.Name == pool.Name).FirstOrDefault();
+                var pool1 = Context.Pools.Where(p => p.Name == pool.Name && p.ParkID == pool.ParkID).FirstOrDefault();
                 return BadRequest(new { X = pool1?.X, Y = pool1?.Y });
             }
-            else if (Context.Pools.Any(p => (p.X == pool.X && p.Y == pool.Y) && p.ParkID == pool.ParkID)){
-                return StatusCode(400);
+            if (Context.Pools.Any(p => (p.X == pool.X && p.Y == pool.Y) && p.ParkID == pool.ParkID)){
+                return StatusCode(406);
             }
             else {
                 Context.Pools.Add(pool);
