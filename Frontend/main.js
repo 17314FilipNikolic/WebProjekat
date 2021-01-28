@@ -1,5 +1,4 @@
 import {Park} from "./park.js"
-import { Slide } from "./slide.js";
 
 /*const park1 = new Park(1, "Aqua park", 5, 5, 6);
 park1.drawPark(document.body);*/

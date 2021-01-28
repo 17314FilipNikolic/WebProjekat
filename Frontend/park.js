@@ -132,7 +132,7 @@ export class Park{
                     p.json().then(q => {
                         errorLoc.x = q.x;
                         errorLoc.y = q.y;
-                        alert("Postoji nepopunjena lokacija sa navedenim mestom! Lokacija je (" + errorLoc.x + "," + errorLoc.y + ")");
+                        alert("Postoji nepopunjena lokacija sa navedenim bazenom! Lokacija je (" + errorLoc.x + "," + errorLoc.y + ")");
                     });
                 }
                 else {
